@@ -1,0 +1,36 @@
+voting application : Functionality where user can vote to a given set of candidate
+
+Functionality:
+1. user should sign in / sign up.
+2. See the candidates. 
+3. User can only vote once to only 1 person 
+4. Route which shows the list of candidates with the live vote count .
+5. User data should contain unique governmental id : adhar card number.
+6. User can change the password.
+7. User can login using adhar number and password
+8. There should a admin to manage the list of candidates.
+9. Admin cannot vote
+
+
+
+Route:
+
+User Authentication:
+    /signup : POST - Create a new user
+    /signin : GET - Login to the created account using adhard and password.
+
+Voting:
+    /candidates : GET - List of candidates
+    /vote/:candidateId : POST - vote for specific candidate
+
+Vote count:
+    /vote/count : GET - get the list of candidates sorted by their votes.
+
+Profile:
+    /profile : GET - can view their profile
+    /profile/password : PUT - change their password
+
+Admin candidate management:
+    /candidates : POST - Add the candidates
+    /candidates/:candidateId : PUT - Update the existing candidate
+    /candidate/:candidateId : DELETE - delete the candidate
