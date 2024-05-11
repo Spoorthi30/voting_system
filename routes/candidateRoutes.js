@@ -52,7 +52,7 @@ router.put('/:candidateID',jwtAuthMiddleware,async(req,res)=>{
         const candidateID = req.params.candidateID;  // Extract id from URL
         const updatedcandidateData = req.body;
         
-        const response = await Person.findByIdAndUpdate(candidateID,updatedcandidateData,{
+        const response = await Candidate.findByIdAndUpdate(candidateID,updatedcandidateData,{
             new : true,   //return the updated document
             runValidators : true    //run the mongoose validation
         });
@@ -76,9 +76,9 @@ router.delete('/:candidateID',jwtAuthMiddleware,async(req,res)=>{
             return response.status(403).json({message:'user does not have admin role'});
         }
         const candidateID = req.params.candidateID;  // Extract id from URL
+        const updatedcandidateData = req.body;
         
-        
-        const response = await Person.findByIdAndDelete(candidateID,updatedcandidateData,{
+        const response = await Candidate.findByIdAndDelete(candidateID,updatedcandidateData,{
             new : true,   //return the updated document
             runValidators : true    //run the mongoose validation
         });
